@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <meta charset="utf-8" /><title>MathFlow responsive QA</title
+  ><style>
+    body {
+      background: #d6dedb;
+      font: 14px Arial;
+      margin: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+    }
+    aside {
+      width: 160px;
+    }
+    label,
+    select {
+      display: block;
+      margin-bottom: 12px;
+    }
+    iframe {
+      border: 1px solid #bcc9c5;
+      border-radius: 12px;
+      background: white;
+      width: 393px;
+      height: 852px;
+      box-shadow: 0 12px 45px #173e4720;
+    }
+  </style>
+  <aside>
+    <h2>Viewport QA</h2>
+    <label
+      >Frame size<select id="size">
+        <option value="393,852">393 × 852</option>
+        <option value="360,740">360 × 740</option>
+        <option value="412,915">412 × 915</option>
+      </select></label
+    >
+    <p>
+      Responsive iframe test. Does not emulate Android, native keyboards or
+      physical touch.
+    </p>
+  </aside>
+  <iframe title="MathFlow mobile viewport" src="/?qa=mobile"></iframe>
+  <script>
+    document.querySelector("select").onchange = (e) => {
+      const [w, h] = e.target.value.split(",");
+      const f = document.querySelector("iframe");
+      f.style.width = w + "px";
+      f.style.height = h + "px";
+    };
+  </script>
+</html>

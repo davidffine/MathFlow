@@ -1,0 +1,50 @@
+{
+  "name": "mathflow",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "predev": "node scripts/copy-ocr-assets.mjs",
+    "dev": "vite --host 0.0.0.0 --port 4173",
+    "prebuild": "node scripts/copy-ocr-assets.mjs",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview --host 0.0.0.0 --port 4173",
+    "test": "vitest run",
+    "cap:sync": "npm run build && cap sync android",
+    "android": "npm run cap:sync && cap open android",
+    "format": "prettier --write src tests capacitor.config.ts vite.config.ts"
+  },
+  "dependencies": {
+    "@capacitor/android": "^7.4.0",
+    "@capacitor/camera": "^7.0.0",
+    "@capacitor/core": "^7.4.0",
+    "@capacitor/keyboard": "^7.0.0",
+    "@tesseract.js-data/eng": "^1.0.0",
+    "@tesseract.js-data/heb": "^1.0.0",
+    "@tiptap/extension-image": "^3.0.0",
+    "@tiptap/extension-placeholder": "^3.0.0",
+    "@tiptap/extension-text-align": "^3.0.0",
+    "@tiptap/extension-text-style": "^3.0.0",
+    "@tiptap/react": "^3.0.0",
+    "@tiptap/starter-kit": "^3.0.0",
+    "idb": "^8.0.3",
+    "katex": "^0.16.22",
+    "lucide-react": "^0.468.0",
+    "mathlive": "0.108.1",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "tesseract.js": "^7.0.0"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^7.4.0",
+    "@types/katex": "^0.16.7",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "@vitejs/plugin-react": "^4.5.0",
+    "fake-indexeddb": "^6.1.0",
+    "prettier": "^3.6.0",
+    "typescript": "~5.8.3",
+    "vite": "^6.3.5",
+    "vitest": "^3.2.0"
+  }
+}
